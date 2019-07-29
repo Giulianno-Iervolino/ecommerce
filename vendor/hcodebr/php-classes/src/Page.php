@@ -7,12 +7,12 @@ class Page
 	private $tpl;
 	private $options = [];
 	private $defaults = ["data" =>[]];
-	public function __construct($opts = array())
+	public function __construct($opts = array(), $tpl_dir = "/views/")
 	{
 		$this->options = array_merge($this->defaults,$opts);
 		$config = array
 		(
-			"tpl_dir" 	=> $_SERVER["DOCUMENT_ROOT"]."/views/",//pasta dos arquivos HTML
+			"tpl_dir" 	=> $_SERVER["DOCUMENT_ROOT"].$tpl_dir,//pasta dos arquivos HTML
 			"cache_dir" => $_SERVER["DOCUMENT_ROOT"]."/views-cache",//Pasta de cache
 			"debug" 	=> false//mudar para falso melhora a velocidade
 		);

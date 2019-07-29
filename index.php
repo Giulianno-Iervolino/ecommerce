@@ -4,6 +4,7 @@ require_once("vendor/autoload.php");
 
 use \Slim\Slim;
 use \Hcode\Page;
+use \Hcode\PageAdmin;
 
 $app = new Slim();
 
@@ -17,6 +18,18 @@ $app->get('/', function() //seleciona a rota
 
 
 });
+//--administracao
+$app->config('debug', true);
+
+$app->get('/admin', function() //seleciona a rota
+{
+    
+	$page = new PageAdmin();
+	$page->setTpl('index');//carrega conteudo
+
+
+});
+
 
 $app->run();//roda tudo 
 
